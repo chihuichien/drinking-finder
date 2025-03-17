@@ -77,6 +77,7 @@ function App() {
       store.drink.includes(userInput.trim())
     );
     setMatchingStores(foundStoresInJson);
+    console.log(matchingStores)
     //setUserInput("");
     /*console.log(
       "資料庫裡有賣的店家：",
