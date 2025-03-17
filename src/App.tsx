@@ -29,6 +29,8 @@ function App() {
   const [userLocation, setUserLocation] = useState<UserType | null>(null);
   const [hasSearched, setHasSearched] = useState<boolean>(false);
   const [matchingStores, setMatchingStores] = useState<DrinkingJsonType[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _ = matchingStores;
   const [finalStores, setFinalStores] = useState<googleBufferPlaceType[]>([]);
   const [selectedPlace, setSelectedPlace] =
     useState<googleBufferPlaceType | null>(null);
@@ -128,7 +130,7 @@ function App() {
       }
       const data = await response.json();
       if (!data.places) {
-        alert("搜尋範圍無手搖店！")
+        alert("搜尋範圍無手搖店！");
         return;
       }
 
@@ -158,9 +160,14 @@ function App() {
 
   return (
     <div className="py-9 font-slab bg-gradient-to-b from-white to-blue-100">
-      <p className="text-6xl mb-5 text-center bg-gradient-to-tr from-blue-300 to-blue-900 bg-clip-text text-transparent transition duration-1000 ease-in-out hover:bg-gradient-to-bl hover:from-sky-900 hover:to-sky-500 h-20">Drinking Finder</p>
+      <p className="text-6xl mb-5 text-center bg-gradient-to-tr from-blue-300 to-blue-900 bg-clip-text text-transparent transition duration-1000 ease-in-out hover:bg-gradient-to-bl hover:from-sky-900 hover:to-sky-500 h-20">
+        Drinking Finder
+      </p>
       <div className="flex flex-col items-center gap-5">
-        <label htmlFor="user-input" className="text-2xl font-semibold text-blue-900">
+        <label
+          htmlFor="user-input"
+          className="text-2xl font-semibold text-blue-900"
+        >
           輸入想喝的飲料:
         </label>
         <div>
@@ -177,7 +184,9 @@ function App() {
             Submit
           </button>
         </div>
-        <p className="text-xs">*註：因飲料資訊尚不足，建議以「綠茶」、「紅茶」、「冬瓜檸檬」、「綠茶拿鐵」做測試</p>
+        <p className="text-xs">
+          *註：因飲料資訊尚不足，建議以「綠茶」、「紅茶」、「冬瓜檸檬」、「綠茶拿鐵」做測試
+        </p>
       </div>
       <div className="mt-10 flex flex-col items-center py-8">
         <p className="text-2xl font-semibold text-gray-700">Google Map</p>
