@@ -158,7 +158,7 @@ function App() {
   }
 
   return (
-    <div className="py-9 font-slab bg-gradient-to-b from-white to-blue-100">
+    <div className="py-9 font-slab bg-gradient-to-b from-white to-blue-100 min-h-screen">
       <p className="text-6xl mb-5 text-center bg-gradient-to-tr from-blue-300 to-blue-900 bg-clip-text text-transparent transition duration-1000 ease-in-out hover:bg-gradient-to-bl hover:from-sky-900 hover:to-sky-500 h-20">Drinking Finder</p>
       <div className="flex flex-col items-center gap-5">
         <label htmlFor="user-input" className="text-2xl font-semibold text-blue-900">
@@ -182,16 +182,15 @@ function App() {
       </div>
       <div className="mt-10 flex flex-col items-center py-8">
         <p className="text-2xl font-semibold text-gray-700">Google Map</p>
-        {!userLocation && <p className="mb-2">載入位置中....</p>}
 
         {/* Google Map 顯示處 */}
-        <div className="mt-4 mb-10 border-2 w-[80%]">
+        {userLocation ? <div className="mt-4 mb-10 border-2 w-[80%]">
           <APIProvider
             apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
             onLoad={() => console.log("map onload")}
           >
             <Map
-              center={
+              defaultCenter={
                 userLocation
                   ? { lat: userLocation.latitude, lng: userLocation.longitude }
                   : { lat: 25.033964, lng: 121.564468 }
@@ -288,7 +287,7 @@ function App() {
               )}
             </Map>
           </APIProvider>
-        </div>
+        </div> : <p className="mt-8 text-xl">取用位置中，請稍候......</p>}
 
         {/* 條列販售飲料店 */}
         <div className="w-1/2">
