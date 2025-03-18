@@ -268,7 +268,7 @@ function App() {
                       onClick={() => {
                         if (selectedPlace.id === "my-location") {
                           window.open(
-                            `https://www.google.com/maps/search/?api=1&query=${selectedPlace.location.latitude},${selectedPlace.location.longitude}`,
+                            `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedPlace.displayName.text)}&place_id=${selectedPlace.id}`,
                             "_blank"
                           );
                         } else {
