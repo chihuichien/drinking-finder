@@ -273,7 +273,7 @@ function App() {
                           );
                         } else {
                           window.open(
-                            `https://www.google.com/maps/place/?q=place_id:${selectedPlace.id}`,
+                            `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(selectedPlace.displayName.text)}&query_place_id=${selectedPlace.id}`,
                             "_blank"
                           );
                         }
