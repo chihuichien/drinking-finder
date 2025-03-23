@@ -158,16 +158,16 @@ function App() {
   }
 
   return (
-    <div className="py-9 font-slab bg-gradient-to-b from-white to-blue-100 min-h-screen">
-      <p className="text-6xl mb-5 text-center bg-gradient-to-tr from-blue-300 to-blue-900 bg-clip-text text-transparent transition duration-1000 ease-in-out hover:bg-gradient-to-bl hover:from-sky-900 hover:to-sky-500 h-20">Drinking Finder</p>
+    <div className="py-9 px-5 font-slab bg-gradient-to-b from-white to-blue-100 min-h-screen">
+      <p className="text-6xl mb-5 pb-2 text-center bg-gradient-to-tr from-blue-300 to-blue-900 bg-clip-text text-transparent transition duration-1000 ease-in-out hover:bg-gradient-to-bl hover:from-sky-900 hover:to-sky-500">Drinking Finder</p>
       <div className="flex flex-col items-center gap-5">
         <label htmlFor="user-input" className="text-2xl font-semibold text-blue-900">
           輸入想喝的飲料:
         </label>
-        <div>
+        <div className="flex flex-col items-center gap-5 sm:flex sm:flex-row sm:gap-1">
           <input
             id="user-input"
-            className="border-2 border-zinc-800 outline-blue-800 px-5 py-1 w-sm h-12 rounded-xl text-lg"
+            className="border-2 border-zinc-800 outline-blue-800 px-5 py-1 text-center sm:text-left h-12 rounded-xl text-lg"
             value={userInput}
             onChange={handleUserInput}
           />
@@ -290,7 +290,7 @@ function App() {
         </div> : <p className="mt-8 text-xl">取用位置中，請稍候......</p>}
 
         {/* 條列販售飲料店 */}
-        <div className="w-1/2">
+        <div className="w-2/3 sm:w-1/2">
           {finalStores.length > 0 && (
             <p className="font-semibold text-xl my-5 text-gray-800">
               周圍 800 公尺販售「{userInput}」的店家
